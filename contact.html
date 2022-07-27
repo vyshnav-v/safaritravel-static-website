@@ -119,7 +119,7 @@
 		<div class="container">
 			<h3 class="title">Contact Us</h3>
 			<div class="contact-block-left">
-				<form action="#" method="post">
+				<form id="submit-form" action="" >
 					<input type="text" placeholder="Name" required="" name="Name">
 					<input type="email" class="email" placeholder="Email" name="Email" required="">
 					<textarea placeholder="Message" name="message" required=""></textarea>
@@ -289,6 +289,26 @@
 	</a>
 	<!-- //smooth scrolling-bottom-to-top -->
 	<!-- //Js files -->
+	
+	  <script>
+        $("#submit-form").submit((e)=>{
+            e.preventDefault()
+            $.ajax({
+                url:"https://script.google.com/macros/s/AKfycbw90Pp-fQ0Rg99d6r3vS3w8ttc2f9GqzqIhdBKa928SGvacNOGgkuiNak2jJlh2yhW0/exec",
+                data:$("#submit-form").serialize(),
+                method:"post",
+                success:function (response){
+                    alert("Form submitted successfully")
+                    window.location.reload()
+                    //window.location.href="https://google.com"
+                },
+                error:function (err){
+                    alert("Something Error")
+    
+                }
+            })
+        })
+    </script>
 
 </body>
 
